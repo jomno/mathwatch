@@ -1,4 +1,13 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= current_user.name %>
-<%= link_to("로그아웃",logout_path,method: :delete)%>
+<div class="col-12 index_image">
+    <img class="select_subject" src="<%=asset_path 'select_subject.png' %>"></img>
+    <div class="char">
+      <p>단원 선택</p>
+    </div>
+</div>
+<div class="line col-12">
+</div>
+<div class="col-12 index_image">
+    <img class="report" src="<%=asset_path 'report.png' %>"></img>
+</div>
+<!-- <%= current_user.name %>
+<%= link_to("로그아웃",logout_path,method: :delete)%> -->
