@@ -1,9 +1,11 @@
 class MathController < ApplicationController
     def report
+
       @quest = Quest.find(5)
       grade(params[:answer], @quest)
-      @fdata=get_report(User.first,1,1)
-      @sdata=get_report(User.first,1,2)
+      @fdata=get_report(current_user,current_user.cnt,1)
+      @sdata=get_report(current_user,current_user.cnt,2)
+
     end
 
     def start
@@ -11,22 +13,24 @@ class MathController < ApplicationController
     end
 
     def select
-      subjects = params[:subject_ids]
-
-      units_id=[]
-      user_level_unit = Hash.new
-
-      Unit.where(subject_id: subjects).each do |u|
-        units_id.push(u.id)
-      end
-
-      Ulevel.where(unit_id: units_id, user_id: 1).each do |l|
-        user_level_unit["#{l.unit_id}"] = l.level  #current_user id 추가도 해야 됨
-      end
-
-      quests = Quest.searchU(user_level_unit)
-      puts quests
-      session[:final_quest_id] = quests
+      # subjects = params[:subject_ids]
+      #
+      # units_id=[]
+      # user_level_unit = Hash.new
+      #
+      # Unit.where(subject_id: subjects).each do |u|
+      #   units_id.push(u.id)
+      # end
+      #
+      # Ulevel.where(unit_id: units_id, user_id: 1).each do |l|
+      #   user_level_unit["#{l.unit_id}"] = l.level  #current_user id 추가도 해야 됨
+      # end
+      #
+      # quests = Quest.searchU(user_level_unit)
+      # puts quests
+      # session[:final_quest_id] = quests
+      cnt2=current_user.cnt+1
+      current_user.update!(cnt: cnt2)
       redirect_to math_solve_path(:id => 1)
     end
 
@@ -34,6 +38,7 @@ class MathController < ApplicationController
       # final_quest_id = session[:final_quest_id]
       # @final_quests = Quest.where(quest_id: final_quest_id)
       # session[:final_quest_id] = nil
+      # answers.push(params[:answer])
       quests=Quest.all.limit(5)
 
       if params[:id].to_i == 5
