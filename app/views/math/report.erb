@@ -20,16 +20,16 @@
     <% end %>
   </tbody>
 </table>
-<table border="1">
+<table border="1" align="center">
   <thead>
     <th>유형</th>
     <th>틀린 문제 수 * 난이도</th>
   </thead>
-  <tbody>
+  <tbody align="center">
     <% @sdata.keys.each do |key|%>
     <tr>
       <td>
-        <%= key %>
+        <%= Unit.find(key).name %>
       </td>
       <td>
         <%= @sdata[key]%>

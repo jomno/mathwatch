@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # wonno gem
+gem 'chart-js-rails'
 gem 'rails_db'
 gem 'seed_dump'
 gem 'bcrypt'
