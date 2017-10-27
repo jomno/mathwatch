@@ -104,7 +104,11 @@
 		100% { transform:rotateY(360deg) }
 	}
 
-
+  .aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 	#fadein{
 	animation:4s ease 0s normal forwards 1 fadein;
