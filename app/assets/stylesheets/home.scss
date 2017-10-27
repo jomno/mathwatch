@@ -133,6 +133,16 @@
 
 
   //index페이지
+  a:link, a:visited, a:hover{
+    color: black;
+    text-decoration: none;
+  }
+
+  a:active{
+    color: black;
+    text-decoration: none;
+    opacity: 0.8;
+  }
   .index_image{
     margin-top: 15%;
     margin-bottom: 10%;
@@ -140,6 +150,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .char{
+    margin-top: 10%;
+    font-size: 20px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
   }
   .line{
     // margin-top: 2px;

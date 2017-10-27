@@ -14,10 +14,10 @@
       </ul>
     </div>
 
+    <div class="explain">
+      <%= link_to '해설보기', math_explain_path(:id => params[:id].to_i, :quest_id => @quest.id) -%>
+    </div>
     <div class="submit">
       <%= submit_tag('제출하기') -%>
     </div>
 <% end %>
-    <div class="forgive">
-      <%= link_to '해설보기', math_explain_path(:id => params[:id].to_i, :quest_id => @quest.id) -%>
-    </div>
