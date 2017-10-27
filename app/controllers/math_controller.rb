@@ -1,7 +1,7 @@
 class MathController < ApplicationController
     def report
-      @fdata=get_report(User.first,1,1)
-      @sdata=get_report(User.first,1,2)
+      @fdata=get_report(current_user,current_user.cnt,1)
+      @sdata=get_report(current_user,current_user.cnt,2)
     end
     def start
       @subjects = Subject.all
@@ -23,6 +23,7 @@ class MathController < ApplicationController
       # quests = Quest.searchU(user_level_unit)
       # puts quests
       # session[:final_quest_id] = quests
+      current_user.cnt+=1
       redirect_to math_solve_path(:id => 1)
     end
 
@@ -30,11 +31,11 @@ class MathController < ApplicationController
       # final_quest_id = session[:final_quest_id]
       # @final_quests = Quest.where(quest_id: final_quest_id)
       # session[:final_quest_id] = nil
-      answers.push(params[:answer])
+      # answers.push(params[:answer])
       quests=Quest.all.limit(5)
 
       if params[:id].to_i == 5
-        @url = "/math/grade"
+        @url = "/math/report"
       else
         @url = "/math/solve?id=#{params[:id].to_i + 1}"
       end

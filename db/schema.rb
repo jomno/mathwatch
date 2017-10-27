@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20171027091907) do
     t.string   "email"
     t.string   "name"
     t.string   "password_digest"
-    t.integer  "cnt"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "cnt"
