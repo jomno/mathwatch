@@ -75,6 +75,8 @@ class MathController < ApplicationController
 
     def explain
       Uquest.create!(user_id: 1, quest_id: params[:quest_id], correct: 0, cnt: current_user.cnt)
+      @quest = Quest.find(params[:quest_id])
+      @q_units = @quest.info.keys
       if params[:id].to_i == 5
         @url = "/math/report"
       elsif params[:id].to_i == 10
