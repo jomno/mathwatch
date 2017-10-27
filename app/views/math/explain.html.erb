@@ -32,7 +32,9 @@
     </div>
   </div>
   <div class="text-right">
-    <% if @url == "/math/report" %>
+    <% if @url == :back %>
+      <%= link_to '돌아 가기', @url,class: "btn btn-default" %>
+    <% elsif @url == "/math/report" %>
       <%= link_to '분석레포트 가기', @url,class: "btn btn-default" %>
     <% else %>
       <%= link_to '다음 문제 가기', @url,class: "btn btn-default" %>
