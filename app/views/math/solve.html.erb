@@ -1,0 +1,20 @@
+<%= form_tag(@url) do %>
+    <div class="quest">
+      <%= @quest.title -%>
+    </div>
+
+    <div class="answers">
+      <ul>
+        <% [1,2,3,4,5].each do |i| %>
+          <li>
+            <%= radio_button_tag 'answer', i -%>
+            <%= "#{i}" + "번: 보기" -%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="submit">
+      <%= submit_tag('제출하기') -%>
+    </div>
+<% end %>

@@ -1,0 +1,15 @@
+<%= form_tag(math_select_path) do %>
+
+    <ul>
+      <% @subjects.each do |subject| %>
+        <li>
+          <%= check_box_tag 'subject_ids[]', subject.id -%>
+          <%= subject.name -%>
+        </li>
+      <% end %>
+    </ul>
+
+
+    <%= submit_tag('submit') %>
+
+<% end %>

@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+
+  get '/math' => 'math#start'
+  post '/math/select' => 'math#select'
+  get '/math/solve' => 'math#solve'
+  post '/math/solve' => 'math#solve'
+  post '/math/grade' => 'math#grade'
 end
