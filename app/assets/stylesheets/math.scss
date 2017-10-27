@@ -3,12 +3,87 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // start 페이지
+$label-size: 20px;
+$label-margin: 6px;
+$label-before-size: 40px;
+
+$color-light: white;
+$color-brand: #FFD966;
+$color-font: rgba(black, .54);
+
+$font-size-md: 14px;
+$font-size-lg: 24px;
+$font-size-xl: 54px;
+$font-light: 300;
+$font-normal: 400;
+$font-bold: 500;
+
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+.subject_input{
+  display: none;
+}
+
+.subject_text {
+  // text-align: center;
+  // display: inline-block;
+  // vertical-align: top;
+  // position: relative;
+  padding: $label-size/2 $label-size;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  font-weight: $font-normal;
+  margin: 0 0;
+  border: 1px solid darken($color-light, 15%);
+}
+.ul_start{
+  padding-left: 0;
+  max-width: 100%;
+  font-family: 'Noto Sans KR';
+  list-style: none;
+}
+
+.li_start{
+  display: inline;
+  padding-right: 5px;
+}
+
+.subject_input:checked + .subject_text {
+  border-color: $color-brand;
+  background-color: $color-brand;
+  opacity: 0.7;
+  &:before {
+    top: 0;
+    opacity: 1;
+  }
+}
+//
+// @media screen and (min-width: 340px) {
+//   .subject_text {
+//     margin: 0
+//   }
+// }
+
+.line_start{
+  height: 1px;
+  background-color: #FFD966;
+}
+
 .header{
   display: flex;
   justify-content: center;
 }
-// solve 페이지
 
+.submit{
+  display: flex;
+  justify-content: center;
+}
+
+
+// solve 페이지
 .num{
   display: flex;
   justify-content: space-between;
@@ -16,11 +91,13 @@
   margin-right: 2%;
   margin-left: 2%;
 }
-
+.form{
+  height: 80%;
+}
 .char{
   margin-top: 0;
   height: 80%;
-  font-size: 40px;
+  // font-size: 40px;
 }
 
 .line{
@@ -35,26 +112,40 @@
   align-items: center;
 }
 
+.quest_title{
+  max-width: 90%;
+}
 .answers{
   margin-top: 7%;
   margin-bottom: 55%;
+  display: flex;
+  justify-content: center;
 }
 
 .answers li {
   display: inline;
-  max-width: 33%;
+  padding-right: 15px;
 }
 
 ul{
+  padding-left: 0;
+  max-width: 90%;
   font-size: 15px;
   font-family: 'Noto Sans KR';
   list-style: none;
-  column :3;
+}
+
+.button_explain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .explain{
   display: flex;
   justify-content: center;
+}
+
 .p {
   text-align: center;
   font-size: 14px;

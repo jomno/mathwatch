@@ -13,7 +13,8 @@ class MathController < ApplicationController
       render 'report'
     end
     def start
-      @subjects = Subject.all
+      @subjects_su2 = Subject.where(big: "수학 Ⅱ")
+      @subjects_der = Subject.where(big: "미적분 Ⅰ")
     end
 
     def select

@@ -3,19 +3,36 @@
     <%= "단원선택" %>
   </div>
 </div>
+<div class="line col-12">
+</div>
 
 <%= form_tag(math_select_path) do %>
-
-    <ul>
-      <% @subjects.each do |subject| %>
-        <li>
-          <%= check_box_tag 'subject_ids[]', subject.id -%>
-          <%= subject.name -%>
+    <h2 style="text-align: center;">수학 Ⅱ</h2>
+    <div class="line_start col-12">
+    </div>
+    <ul class="ul_start">
+      <% @subjects_su2.each do |subject| %>
+        <li class="li_start">
+          <%= check_box_tag 'subject_ids[]', subject.id, false, class: 'subject_input', id: "#{subject.id}" %>
+          <%= label_tag "#{subject.id}", subject.name, class: "subject_text" %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="line_start col-12">
+    </div>
+    <h2 style="text-align: center;">미적분 Ⅰ</h2>
+    <div class="line_start col-12">
+    </div>
+    <ul class="ul_start">
+      <% @subjects_der.each do |subject| %>
+        <li class="li_start">
+          <%= check_box_tag 'subject_ids[]', subject.id, false, class: 'subject_input', id: "#{subject.id}" %>
+          <%= label_tag "#{subject.id}", subject.name, class: "subject_text" %>
         </li>
       <% end %>
     </ul>
 
-
-    <%= submit_tag('submit') %>
-
+    <div class="submit">
+      <%= image_submit_tag('/assets/button_subject') %>
+    </div>
 <% end %>

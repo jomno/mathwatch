@@ -28,7 +28,7 @@
 
     <div class="explain">
       <%= link_to image_tag("/assets/button_back.png"), :back %>
-      <%= link_to math_explain_path(:id => params[:id].to_i, :quest_id => @quest.id) do -%>
+      <%= link_to math_explain_path(:id => params[:id].to_i, :quest_id => @quest.id), class: "button_explain" do %>
         <img class="quest_title" src="<%=asset_path 'button.png' %>"></img>
       <% end %>
       <%= image_submit_tag('/assets/button_front.png') %>

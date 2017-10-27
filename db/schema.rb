@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027091907) do
+ActiveRecord::Schema.define(version: 20171027224322) do
 
   create_table "explains", force: :cascade do |t|
     t.integer  "quest_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171027091907) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "big"
   end
 
   create_table "ulevels", force: :cascade do |t|

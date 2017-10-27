@@ -19,14 +19,14 @@ Quest.create!([
   {info: {"5"=>"1","13"=>"1"}, title: "q_18.PNG", content: "", image: "", answer: 1}
 ])
 Subject.create!([
-  {name: "집합과 명제"},
-  {name: "함수"},
-  {name: "수열"},
-  {name: "지수와 로그"},
-  {name: "수열의 극한"},
-  {name: "함수의 극한"},
-  {name: "다항함수의 미분법"},
-  {name: "다항함수의 적분법"}
+  {name: "집합과 명제", big: "수학 Ⅱ"},
+  {name: "함수", big: "수학 Ⅱ"},
+  {name: "수열", big: "수학 Ⅱ"},
+  {name: "지수와 로그", big: "수학 Ⅱ"},
+  {name: "수열의 극한", big: "미적분 Ⅰ"},
+  {name: "함수의 극한", big: "미적분 Ⅰ"},
+  {name: "다항함수의 미분법", big: "미적분 Ⅰ"},
+  {name: "다항함수의 적분법", big: "미적분 Ⅰ"}
 ])
 Unit.create!([
   {name: "등차수열의 일반항", subject_id: 3},
