@@ -1,6 +1,7 @@
 class MathController < ApplicationController
 
   def report
-    @data=get_report(User.first,1,1)
+    @fdata=get_report(User.first,1,1)
+    @sdata=get_report(User.first,1,2)
   end
 end

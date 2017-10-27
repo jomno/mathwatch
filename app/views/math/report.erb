@@ -1,11 +1,11 @@
-<table>
+<table border="1">
   <thead>
     <th>문항 번호</th>
     <th>정답</th>
     <th>해설 보기</th>
   </thead>
   <tbody>
-    <% @data.each_with_index do |d,index|%>
+    <% @fdata.each_with_index do |d,index|%>
     <tr>
       <td>
         <%= index+1%>
@@ -15,6 +15,24 @@
       </td>
       <td>
         <a href="#">해설</a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<table border="1">
+  <thead>
+    <th>유형</th>
+    <th>틀린 문제 수 * 난이도</th>
+  </thead>
+  <tbody>
+    <% @sdata.keys.each do |key|%>
+    <tr>
+      <td>
+        <%= key %>
+      </td>
+      <td>
+        <%= @sdata[key]%>
       </td>
     </tr>
     <% end %>
