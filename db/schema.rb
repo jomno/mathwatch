@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027065218) do
+ActiveRecord::Schema.define(version: 20171027091907) do
 
   create_table "explains", force: :cascade do |t|
     t.integer  "quest_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171027065218) do
     t.boolean  "correct"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "cnt"
     t.index ["quest_id"], name: "index_uquests_on_quest_id"
     t.index ["user_id"], name: "index_uquests_on_user_id"
   end
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 20171027065218) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "cnt"
   end
 
 end

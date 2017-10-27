@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 # wonno gem
-gem "pry-rails"
-gem "awesome_print"
+gem 'rails_db'
+gem 'seed_dump'
 gem 'bcrypt'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
