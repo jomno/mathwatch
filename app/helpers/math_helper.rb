@@ -8,7 +8,7 @@ module MathHelper
     end
     Quest.where(id: Uquest.fail_ary(user,cnt)).select(:info).each do |q_unit|
       q_unit.info.keys.each do |key|
-        second[key.to_i]+=q_unit.info[key].to_i
+        second[key.to_i]+=q_unit.info[key].to_i*5
       end
     end
     result["1"]=first
@@ -24,5 +24,13 @@ module MathHelper
         Uquest.create!(user_id: 1, quest_id: answer_quest.id-1, correct: 0, cnt: current_user.cnt)
       end
     end
+  end
+
+  def get_unit_name
+    ary=[]
+    Unit.all.each do |u|
+      ary.push(u.name)
+    end
+    return ary
   end
 end
