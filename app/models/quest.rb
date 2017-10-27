@@ -6,6 +6,13 @@ class Quest < ApplicationRecord
   has_many :uquests
   has_many :users, through: :uquests
 
+
+  # def self.next_quest(user,cnt)
+  #   resultAry = []
+  #   Quest.where(id: Uquest.fail_ary(user,cnt)).each do |q|
+  #     resultAry.push(q.info)
+  #   end
+  # end
   # def self.searchU(user_level_unit)
   #   quests = []
   #   user_level_unit.keys.zip(user_level_unit.values).each do |u, l|
