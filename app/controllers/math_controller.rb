@@ -61,8 +61,7 @@ class MathController < ApplicationController
       # final_quest_id = session[:final_quest_id]
       # @final_quests = Quest.where(quest_id: final_quest_id)
       # session[:final_quest_id] = nil
-      # answers.push(params[:answer])
-      puts session[:final_quest_id]
+      # answers.push(params[:answer]
       quests=Quest.all.limit(5)
 
       if params[:id].to_i == 5

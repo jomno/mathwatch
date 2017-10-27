@@ -1,23 +1,37 @@
-<%= form_tag(@url) do %>
-    <div class="quest">
-      <%= @quest.title -%>
+<div class="col-12 num">
+  <div class="char col-2">
+    <%= params[:id] + "번" %>
+  </div>
+  <div class="char col-4">
+    <%= "2009년 수능 18번" %>
+  </div>
+</div>
+
+<div class="line col-12">
+</div>
+
+<%= form_tag(@url, class: "form") do %>
+    <div class="col-12 quest">
+      <img class="quest_title" src="<%=asset_path @quest.title %>"></img>
     </div>
 
     <div class="answers">
       <ul>
-        <% [1,2,3,4,5].each do |i| %>
-          <li>
-            <%= radio_button_tag 'answer', i -%>
-            <%= "#{i}" + "번: 보기" -%>
-          </li>
-        <% end %>
+          <% [1,2,3,4,5].each do |i| %>
+              <li>
+                <%= radio_button_tag 'answer', i %>
+                <%= label_tag 'answer', "#{i}" + "번: 보기"%>
+              </li>
+          <% end %>
       </ul>
     </div>
 
     <div class="explain">
-      <%= link_to '해설보기', math_explain_path(:id => params[:id].to_i, :quest_id => @quest.id) -%>
-    </div>
-    <div class="submit">
-      <%= submit_tag('제출하기') -%>
+      <%= link_to image_tag("/assets/button_back.png"), :back %>
+      <%= link_to math_explain_path(:id => params[:id].to_i, :quest_id => @quest.id) do -%>
+        <img class="quest_title" src="<%=asset_path 'button.png' %>"></img>
+      <% end %>
+      <%= image_submit_tag('/assets/button_front.png') %>
+      <!-- <img class="quest_title" src="<%=asset_path 'button_front.png' %>"></img> -->
     </div>
 <% end %>
