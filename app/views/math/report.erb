@@ -1,45 +1,151 @@
-<table border="1">
-  <thead>
-    <th>문항 번호</th>
-    <th>정답</th>
-    <th>해설 보기</th>
-  </thead>
-  <tbody>
-    <% @fdata.each_with_index do |d,index|%>
-    <tr>
-      <td>
-        <%= index+1%>
-      </td>
-      <td>
-        <%= d.correct %>
-      </td>
-      <td>
-        <a href="#">해설</a>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<table border="1" align="center">
-  <thead>
-    <th>유형</th>
-    <th>틀린 문제 수 * 난이도</th>
-  </thead>
-  <tbody align="center">
-    <% @sdata.keys.each do |key|%>
-    <tr>
-      <td>
-        <%= Unit.find(key).name %>
-      </td>
-      <td>
-        <%= @sdata[key]%>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<% if action_name=="report" %>
-  <a href="/math/select">오답분석문제</a>
-<% else %>
-  <a href="/home/index">메인페이지 가기</a>
-<% end %>
+<div class="container">
+  <div class="panel panel-info" style="margin-top:10px;">
+    <div class="panel-heading">
+      <h3 class="panel-title">분석레포트</h3>
+    </div>
+    <div class="panel-body">
+      <div>
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">채점표</h3>
+    </div>
+    <div class="panel-body">
+      <div>
+        <table border="1" class="table table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">문항</th>
+              <th class="text-center">정답</th>
+              <th class="text-center">해설</th>
+            </tr>
+          </thead>
+          <tbody align="center">
+            <% @fdata.each_with_index do |d,index|%>
+            <tr>
+              <td>
+                <%= index+1%>
+              </td>
+              <td>
+                <% if d.correct%>
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:red;"></span>
+                <% else %>
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:red;"></span>
+                <% end %>
+              </td>
+              <td>
+                <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" style="color:red;"></span></a>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <% if action_name=="report" %>
+        <a class="btn btn-warning" href="/math/select">오답분석문제</a>
+      <% else %>
+        <a class="btn btn-warning" href="/home/index">메인페이지 가기</a>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+</div>
+<script type="text/javascript">
+  var name_ary = <%= raw get_unit_name%>;
+  // var name_ary = <%= @sdata.keys %>;
+  var data_ary = <%= @sdata.values%>;
+  var barChartData = {
+  labels: name_ary.slice(0,10),
+  datasets: [{
+    fillColor: "rgba(0,60,100,1)",
+    strokeColor: "black",
+    data: data_ary.slice(0,10)
+  }]
+  }
+
+  var index = 10;
+  var ctx = document.getElementById("canvas").getContext("2d");
+  var barChartDemo = new Chart(ctx).Bar(barChartData, {
+    responsive: true,
+    barValueSpacing: 2,
+    scaleFontSize: 0
+  });
+  setInterval(function() {
+    barChartDemo.removeData();
+    barChartDemo.addData([data_ary[index]], name_ary[index]);
+    if(index == <%=@sdata.values.length-1%>){
+      index=0
+    }else{
+      index++;
+    }
+  }, 3000);
+</script>
+    <!-- <div>
+        <canvas id="canvas"></canvas>
+    </div>
+    <script>
+        var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var config = {
+            type: 'line',
+            data: {
+                labels: <%= raw get_unit_name%>,
+                datasets: [{
+                    label: "My First dataset",
+                    backgroundColor: "#FFD966",
+                    borderColor: "#FFD966",
+                    data: <%= @sdata.values%>,
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                title:{
+                    display:true,
+                    text:'Chart.js Line Chart'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 5,
+                            // forces step size to be 5 units
+                            stepSize: 0.5
+                        }
+                    }]
+                }
+            }
+        };
+        window.onload = function() {
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx, config);
+        };
+
+    </script> -->
