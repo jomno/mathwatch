@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Quest.create!([
   {info: {"1"=>"1","3"=>"1"}, title: "q_1.PNG", content: "", image: "", answer: 1},
   {info: {"1"=>"1","3"=>"1"}, title: "q_2.PNG", content: "", image: "", answer: 1},
