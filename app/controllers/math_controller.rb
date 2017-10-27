@@ -28,7 +28,8 @@ class MathController < ApplicationController
       #
       # quests = Quest.searchU(user_level_unit)
       # puts quests
-      # session[:final_quest_id] = quests
+      # session[:final_quest_id] ||= quests
+
       cnt2=current_user.cnt+1
       current_user.update!(cnt: cnt2)
       redirect_to math_solve_path(:id => 1)
@@ -39,6 +40,7 @@ class MathController < ApplicationController
       # @final_quests = Quest.where(quest_id: final_quest_id)
       # session[:final_quest_id] = nil
       # answers.push(params[:answer])
+      puts session[:final_quest_id]
       quests=Quest.all.limit(5)
 
       if params[:id].to_i == 5
@@ -50,6 +52,14 @@ class MathController < ApplicationController
       @quest = quests[params[:id].to_i-1]
 
       grade(params[:answer], @quest)
+    end
 
+    def explain
+      Uquest.create!(user_id: 1, quest_id: params[:quest_id], correct: 0, cnt:1)
+      if params[:id].to_i == 5
+        @url = "/math/report"
+      else
+        @url = "/math/solve?id=#{params[:id].to_i + 1}"
+      end
     end
 end

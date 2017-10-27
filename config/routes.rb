@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get '/math/solve' => 'math#solve'
   post '/math/solve' => 'math#solve'
   post '/math/grade' => 'math#grade'
+
+  get 'math/explain'
 end
