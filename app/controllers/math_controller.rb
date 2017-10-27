@@ -27,9 +27,6 @@ class MathController < ApplicationController
       # final_quest_id = session[:final_quest_id]
       # @final_quests = Quest.where(quest_id: final_quest_id)
       # session[:final_quest_id] = nil
-      if params[:answer].present?
-        answers.push(params[:answer])
-      end
       quests=Quest.all.limit(5)
 
       if params[:id].to_i == 5
@@ -39,6 +36,11 @@ class MathController < ApplicationController
       end
 
       @quest = quests[params[:id].to_i-1]
+
+      if params[:answer].present?
+        if params[:answer].to_i == @quest.answer
+          Uquest.create!(user_id: 1, quest_id: @quest.id, )
+      end
     end
 
     def grade

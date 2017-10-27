@@ -1,5 +1,6 @@
 class Quest < ApplicationRecord
-  serialize :info, JSON
+  serialize :info, Hash
+  # serialize :content, Array
   has_many :explain
   # Uquest
   has_many :uquests

@@ -1,31 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-  Quest.create!([
-  {info: [{"1"=>"1"}, {"3"=>"1"}], title: "q_1.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"1"}, {"3"=>"1"}], title: "q_2.PNG", content: "", image: "", answer: 1},
-  {info: [{"5"=>"1"}, {"13"=>"2"}], title: "q_3.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"1"}], title: "q_4.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"2"}, {"5"=>"3"}, {"9"=>"2"}], title: "q_5.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"2"}, {"10"=>"1"}], title: "q_6.PNG", content: "", image: "", answer: 1},
-  {info: [{"12"=>"2"}, {"14"=>"2"}], title: "q_7.PNG", content: "", image: "", answer: 1},
-  {info: [{"7"=>"2"}], title: "q_8.PNG", content: "", image: "", answer: 1},
-  {info: [{"7"=>"2"}, {"11"=>"2"}], title: "q_9.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"1"}, {"3"=>"1"}], title: "q_10.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"1"}, {"3"=>"2"}], title: "q_11.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"3"}, {"13"=>"2"}], title: "q_12.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"3"}], title: "q_13.PNG", content: "", image: "", answer: 1},
-  {info: [{"2"=>"2"}, {"5"=>"2"}], title: "q_14.PNG", content: "", image: "", answer: 1},
-  {info: [{"10"=>"3"}, {"17"=>"2"}], title: "q_15.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"3"}, {"2"=>"1"}, {"18"=>"2"}], title: "q_16.PNG", content: "", image: "", answer: 1},
-  {info: [{"7"=>"1"}], title: "q_17.PNG", content: "", image: "", answer: 1},
-  {info: [{"1"=>"1"}, {"2"=>"3"}, {"11"=>"2"}], title: "q_18.PNG", content: "", image: "", answer: 1}
+<<<<<<< HEAD
+Quest.create!([
+  {info: {"1"=>"1","3"=>"1"}, title: "q_1.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"1","3"=>"1"}, title: "q_2.PNG", content: "", image: "", answer: 1},
+  {info: {"5"=>"1","13"=>"2"}, title: "q_3.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"1"}, title: "q_4.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"2","5"=>"3","9"=>"2"}, title: "q_5.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"2","10"=>"1"}, title: "q_6.PNG", content: "", image: "", answer: 1},
+  {info: {"12"=>"2","14"=>"2"}, title: "q_7.PNG", content: "", image: "", answer: 1},
+  {info: {"7"=>"2"}, title: "q_8.PNG", content: "", image: "", answer: 1},
+  {info: {"7"=>"2","11"=>"2"}, title: "q_9.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"1","3"=>"1"}, title: "q_10.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"1","3"=>"2"}, title: "q_11.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"3","13"=>"2"}, title: "q_12.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"3"}, title: "q_13.PNG", content: "", image: "", answer: 1},
+  {info: {"2"=>"2","5"=>"2"}, title: "q_14.PNG", content: "", image: "", answer: 1},
+  {info: {"10"=>"3","17"=>"2"}, title: "q_15.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"3","2"=>"1","18"=>"2"}, title: "q_16.PNG", content: "", image: "", answer: 1},
+  {info: {"7"=>"1"}, title: "q_17.PNG", content: "", image: "", answer: 1},
+  {info: {"1"=>"1","2"=>"3","11"=>"2"}, title: "q_18.PNG", content: "", image: "", answer: 1}
 ])
 Subject.create!([
   {name: "집합과 명제"},
@@ -67,6 +59,3 @@ User.create!([
 for i in 1..21
 Ulevel.create!(user_id: 1, unit_id: i, level: 2)
 end
-
-Uquest.create!(user_id: 1, quest_id: 2, correct: 1)
-Uquest.create!(user_id: 1, quest_id: 4, correct: 1)
