@@ -1,13 +1,17 @@
 class MathController < ApplicationController
     def report
-
       @quest = Quest.find(5)
       grade(params[:answer], @quest)
       @fdata=get_report(current_user,current_user.cnt,1)
       @sdata=get_report(current_user,current_user.cnt,2)
-
     end
-
+    def report2
+      @quest = Quest.find(10)
+      grade(params[:answer], @quest)
+      @fdata=get_report(current_user,current_user.cnt,1)
+      @sdata=get_report(current_user,current_user.cnt,2)
+      render 'report'
+    end
     def start
       @subjects = Subject.all
     end
@@ -32,7 +36,25 @@ class MathController < ApplicationController
 
       cnt2=current_user.cnt+1
       current_user.update!(cnt: cnt2)
-      redirect_to math_solve_path(:id => 1)
+
+      if current_user.cnt.even? && current_user.cnt!=0
+        redirect_to math_solve2_path(:id => 6)
+      else
+        redirect_to math_solve_path(:id => 1)
+      end
+    end
+
+    def solve2
+      quests=Quest.where(id: [6,7,8,9,10])
+
+      if params[:id].to_i == 10
+        @url = "/math/report2"
+      else
+        @url = "/math/solve2?id=#{params[:id].to_i + 1}"
+      end
+      @quest = Quest.find(params[:id])
+      grade(params[:answer], @quest)
+      render 'solve'
     end
 
     def solve
@@ -48,16 +70,18 @@ class MathController < ApplicationController
       else
         @url = "/math/solve?id=#{params[:id].to_i + 1}"
       end
-
       @quest = quests[params[:id].to_i-1]
-
       grade(params[:answer], @quest)
     end
 
     def explain
-      Uquest.create!(user_id: 1, quest_id: params[:quest_id], correct: 0, cnt:1)
+      Uquest.create!(user_id: 1, quest_id: params[:quest_id], correct: 0, cnt: current_user.cnt)
       if params[:id].to_i == 5
         @url = "/math/report"
+      elsif params[:id].to_i == 10
+        @url = "/math/report2"
+      elsif current_user.cnt.even? && current_user.cnt!=0
+        @url = "/math/solve2?id=#{params[:id].to_i + 1}"
       else
         @url = "/math/solve?id=#{params[:id].to_i + 1}"
       end

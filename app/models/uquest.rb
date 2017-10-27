@@ -9,4 +9,6 @@ class Uquest < ApplicationRecord
     end
     return resultAry
   end
+
+
 end

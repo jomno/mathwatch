@@ -19,9 +19,9 @@ module MathHelper
   def grade(answer_submit,answer_quest)
     if answer_submit.present?
       if answer_submit.to_i == answer_quest.answer
-        Uquest.create!(user_id: 1, quest_id: answer_quest.id-1, correct: 1, cnt: 1)
+        Uquest.create!(user_id: 1, quest_id: answer_quest.id-1, correct: 1, cnt: current_user.cnt)
       else
-        Uquest.create!(user_id: 1, quest_id: answer_quest.id-1, correct: 0, cnt: 1)
+        Uquest.create!(user_id: 1, quest_id: answer_quest.id-1, correct: 0, cnt: current_user.cnt)
       end
     end
   end
