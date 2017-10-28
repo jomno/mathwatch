@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // start 페이지
-$label-size: 20px;
+$label-size: 15px;
 $label-margin: 6px;
 $label-before-size: 40px;
 
@@ -29,9 +29,9 @@ html {
 
 .subject_text {
   // text-align: center;
-  // display: inline-block;
-  // vertical-align: top;
-  // position: relative;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
   padding: $label-size/2 $label-size;
   cursor: pointer;
   font-size: $font-size-lg;
@@ -40,15 +40,13 @@ html {
   border: 1px solid darken($color-light, 15%);
 }
 .ul_start{
-  padding-left: 0;
   max-width: 100%;
   font-family: 'Noto Sans KR';
-  list-style: none;
 }
 
 .li_start{
   display: inline;
-  padding-right: 5px;
+  padding: 0;
 }
 
 .subject_input:checked + .subject_text {
