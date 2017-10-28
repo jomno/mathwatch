@@ -80,7 +80,7 @@ class MathController < ApplicationController
       if params[:url] == "main"
         @url = :back
       else
-        Uquest.create!(user_id: 1, quest_id: params[:quest_id], correct: 0, cnt: current_user.cnt)
+        Uquest.create!(user_id: current_user.id, quest_id: params[:quest_id], correct: 0, cnt: current_user.cnt)
         if params[:id].to_i == 5
         @url = "/math/report"
         elsif params[:id].to_i == 10

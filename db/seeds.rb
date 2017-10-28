@@ -54,7 +54,3 @@ Unit.create!([
 User.create!([
   {email: "jake895@gmail.com", name: "공정한", password_digest: "$2a$10$0vNINN0ieCMfTRl9cw8Wu.JyZiy6oUjhIp/nYy9P/ijosX0KkEek.", cnt: 0}
 ])
-
-for i in 1..21
-Ulevel.create!(user_id: 1, unit_id: i, level: 2)
-end
