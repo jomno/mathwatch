@@ -27,11 +27,11 @@
     </div>
 
     <div class="explain">
-      <%= link_to image_tag("/assets/button_back.png"), :back %>
+      <%= link_to "<img src=\"#{asset_path('button_back.png')}\" />".html_safe, :back, :class => "back_button"  %>
       <%= link_to math_explain_path(:id => params[:id].to_i, :quest_id => @quest.id), class: "button_explain" do %>
         <img class="quest_title" src="<%=asset_path 'button.png' %>"></img>
       <% end %>
-      <%= image_submit_tag('/assets/button_front.png') %>
+      <%= submit_tag "", :type => :image, :src => asset_path("button_front") %>
       <!-- <img class="quest_title" src="<%=asset_path 'button_front.png' %>"></img> -->
     </div>
 <% end %>
